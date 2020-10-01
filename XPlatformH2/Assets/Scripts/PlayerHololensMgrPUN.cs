@@ -10,7 +10,7 @@ namespace XPlatformHololens
     /// This class managers the local player's instance over the PUN network and local player's inputs, sending the Transform data of the local player's VR hardware to other
     /// networked players and receiving their data in turn to animate their VR Avatar on the local player's instance
     /// </summary>
-    public class PlayerPCMgrPUN : MonoBehaviourPun, IPunObservable
+    public class PlayerHololensMgrPUN : MonoBehaviourPun, IPunObservable
     {
         #region Public and Private Attributes
         [Tooltip("The local player instance. Use this to know if local player is represented in the scene")]
