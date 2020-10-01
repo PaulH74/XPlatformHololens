@@ -56,7 +56,7 @@ namespace XPlatformHololens
 
         // Oculus Elements
         [Header("Local Player's Oculus VR (MUST set to INACTIVE in prefab):")]
-        public GameObject CameraRig;
+        private Camera _CameraRig;
 
         //// Tool Elements
         //[Header("Player Tools:")]
@@ -86,9 +86,19 @@ namespace XPlatformHololens
                 localPlayerInstance = gameObject;
 
                 // Enable Oculus Camera and controllers (for local player only)
-                CameraRig.SetActive(true);
+                //CameraRig.SetActive(true);
+                _CameraRig = Camera.main;
 
-                localVRHeadset = transform;                 // Get transform data from local VR Headset
+                if (_CameraRig != null)
+                {
+                    Debug.Log("Found scene camera...!");
+                }
+                else
+                {
+                    Debug.Log("Could not find camera...!");
+                }
+
+                localVRHeadset = _CameraRig.transform;                 // Get transform data from local VR Headset
                 //localVRControllerLeft = transform;
                 //localVRControllerRight = transform;
 

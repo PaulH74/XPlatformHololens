@@ -54,9 +54,9 @@ namespace XPlatformHololens
         private Vector3 correctPlayerHeadPosition = Vector3.zero;
         private Quaternion correctPlayerHeadRotation = Quaternion.identity;
 
-        // Oculus Elements
-        [Header("Local Player's Oculus VR (MUST set to INACTIVE in prefab):")]
-        public GameObject CameraRig;
+        //// Oculus Elements
+        //[Header("Local Player's Oculus VR (MUST set to INACTIVE in prefab):")]
+        //public GameObject CameraRig;
 
         //// Tool Elements
         //[Header("Player Tools:")]
@@ -86,7 +86,7 @@ namespace XPlatformHololens
                 localPlayerInstance = gameObject;
 
                 // Enable Oculus Camera and controllers (for local player only)
-                CameraRig.SetActive(true);
+                //CameraRig.SetActive(true);
 
                 localVRHeadset = transform;                 // Get transform data from local VR Headset
                 //localVRControllerLeft = transform;
