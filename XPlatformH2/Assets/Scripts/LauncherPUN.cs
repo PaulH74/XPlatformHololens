@@ -3,7 +3,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 
-namespace XPlatformPC
+namespace XPlatformHololens
 {
     /// <summary>
     /// This class is responsible for creating a room on Photon Network (if master client: first player to connect) or else joining the room

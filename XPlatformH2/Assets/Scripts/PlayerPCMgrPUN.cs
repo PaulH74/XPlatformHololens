@@ -4,7 +4,7 @@ using Photon.Pun;
 //using Photon.Voice.Unity;
 //using Photon.Voice.PUN;
 
-namespace XPlatformPC
+namespace XPlatformHololens
 {
     /// <summary>
     /// This class managers the local player's instance over the PUN network and local player's inputs, sending the Transform data of the local player's VR hardware to other
@@ -54,9 +54,9 @@ namespace XPlatformPC
         private Vector3 correctPlayerHeadPosition = Vector3.zero;
         private Quaternion correctPlayerHeadRotation = Quaternion.identity;
 
-        // Oculus Elements
-        [Header("Local Player's Oculus VR (MUST set to INACTIVE in prefab):")]
-        public GameObject CameraRig;
+        //// Oculus Elements
+        //[Header("Local Player's Oculus VR (MUST set to INACTIVE in prefab):")]
+        //public GameObject CameraRig;
 
         //// Tool Elements
         //[Header("Player Tools:")]
@@ -86,7 +86,7 @@ namespace XPlatformPC
                 localPlayerInstance = gameObject;
 
                 // Enable Oculus Camera and controllers (for local player only)
-                CameraRig.SetActive(true);
+                //CameraRig.SetActive(true);
 
                 localVRHeadset = transform;                 // Get transform data from local VR Headset
                 //localVRControllerLeft = transform;
