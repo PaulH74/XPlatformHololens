@@ -308,7 +308,6 @@ namespace XPlatformHololens
                 // Send local VR Headset position and rotation data to networked player
                 stream.SendNext(localVRHeadset.position);
                 stream.SendNext(localVRHeadset.rotation);
-                Debug.LogFormat("Position: {0} {1} {2}", localVRHeadset.position.x, localVRHeadset.position.y, localVRHeadset.position.z);
                 //stream.SendNext(localVRControllerLeft.position);
                 //stream.SendNext(localVRControllerLeft.rotation);
                 //stream.SendNext(localVRControllerRight.position);
