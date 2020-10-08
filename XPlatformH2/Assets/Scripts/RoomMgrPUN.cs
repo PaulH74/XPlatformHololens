@@ -52,7 +52,7 @@ namespace XPlatformHololens
             }
             else
             {
-                if (PlayerPCMgrPUN.localPlayerInstance == null)
+                if (PlayerHololensMgrPUN.localPlayerInstance == null)
                 {
                     Debug.LogFormat("Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
 
