@@ -187,7 +187,7 @@ MonoBehaviour:
   speakerInUse: {fileID: -1997377602730348481}
   AutoCreateRecorderIfNotFound: 0
   UsePrimaryRecorder: 0
-  SetupDebugSpeaker: 1
+  SetupDebugSpeaker: 0
 --- !u!114 &2691807641068297963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,13 +202,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logLevel: 3
   ignoreGlobalLogLevel: 0
-  voiceDetection: 0
+  voiceDetection: 1
   voiceDetectionThreshold: 0.01
   voiceDetectionDelayMs: 500
   unityMicrophoneDevice: 
   photonMicrophoneDeviceId: -1
   interestGroup: 0
-  debugEchoMode: 1
+  debugEchoMode: 0
   reliableMode: 0
   encrypt: 0
   transmitEnabled: 1
