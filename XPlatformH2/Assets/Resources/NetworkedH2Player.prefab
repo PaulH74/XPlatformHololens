@@ -74,6 +74,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headAvatar: {fileID: 2273417868437209642}
+  mouthAnimated: {fileID: 101210046537391851}
+  mouthStatic: {fileID: 1943021431696613687}
   smoothingFactor: 2
   appliedDistance: 1.5
 --- !u!114 &8901884590167036143
@@ -350,6 +352,18 @@ GameObject:
 --- !u!4 &1497197480243730576 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4686693781573645508, guid: 7485bbd1b7b68744999656c49e6c7e3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6182710034123926612}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1943021431696613687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5709325961028980067, guid: 7485bbd1b7b68744999656c49e6c7e3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6182710034123926612}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &101210046537391851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6100956945437225663, guid: 7485bbd1b7b68744999656c49e6c7e3f,
     type: 3}
   m_PrefabInstance: {fileID: 6182710034123926612}
   m_PrefabAsset: {fileID: 0}

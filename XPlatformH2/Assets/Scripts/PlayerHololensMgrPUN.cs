@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Photon.Pun;
+using Photon.Voice.Unity;
 
 namespace XPlatformHololens
 {
@@ -16,6 +17,8 @@ namespace XPlatformHololens
         // VR Avatar Elements
         [Header("Player Avatar (Displayed to other networked players):")]
         public GameObject headAvatar;
+        public GameObject mouthAnimated;
+        public GameObject mouthStatic;
         //public GameObject leftHandAvatar;
         //public GameObject rightHandAvatar;
         private Transform localH2CameraTF;
@@ -50,6 +53,9 @@ namespace XPlatformHololens
 
         // Hololens Camera Element
         private Camera _CameraRig;
+
+        // Voice Element
+        private Recorder _RecorderPUN;
         #endregion
 
         #region Unity Methods
@@ -81,6 +87,9 @@ namespace XPlatformHololens
                 // Hand Gestures (default state)
                 //SetLeftHandPose(true, false, false);
                 //SetRightHandPose(true, false, false);
+
+                _RecorderPUN = GetComponent<Recorder>();
+                mouthAnimated.SetActive(false);
             }
 
             // Critical
@@ -101,7 +110,6 @@ namespace XPlatformHololens
                 // Update local player's camera transform data
                 localH2CameraTF.position = _CameraRig.transform.position;
                 localH2CameraTF.rotation = _CameraRig.transform.rotation;
-                //Debug.LogFormat("Position: {0} {1} {2}", localVRHeadset.position.x, localVRHeadset.position.y, localVRHeadset.position.z);
             }
             else
             {
@@ -147,6 +155,16 @@ namespace XPlatformHololens
         //    _ShowThumbUpHandPose_RH = thumbsUp;
         //    _ShowFingerPointHandPose_RH = fingerPoint;
         //}
+
+        /// <summary>
+        /// Toggles Animated / Static mouth on the player avatar when they are speaking / not speaking
+        /// </summary>
+        /// <param name="animateMouth"></param>
+        private void ToggleMouthState(bool animateMouth)
+        {
+            mouthAnimated.SetActive(animateMouth);
+            mouthStatic.SetActive(!animateMouth);
+        }
 
         /// <summary>
         /// Applies LERP interpolation to smooth the remote player's game object motion over the network. 
@@ -195,6 +213,7 @@ namespace XPlatformHololens
                 //stream.SendNext(_ShowNormalHandPose_RH);
                 //stream.SendNext(_ShowThumbUpHandPose_RH);
                 //stream.SendNext(_ShowFingerPointHandPose_RH);
+                stream.SendNext(_RecorderPUN.VoiceDetector.Detected);      // Toggle "Mouth Animation" on / off when speaking / quiet
             }
             else if (stream.IsReading)
             {
@@ -211,6 +230,7 @@ namespace XPlatformHololens
                 //_ShowNormalHandPose_RH = (bool)stream.ReceiveNext();
                 //_ShowThumbUpHandPose_RH = (bool)stream.ReceiveNext();
                 //_ShowFingerPointHandPose_RH = (bool)stream.ReceiveNext();
+                ToggleMouthState((bool)stream.ReceiveNext());
             }
         }
         #endregion
